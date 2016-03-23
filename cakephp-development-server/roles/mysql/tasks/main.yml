@@ -1,0 +1,3 @@
+---
+- name: Install MySQL
+  apt: pkg=mysql-server state=present

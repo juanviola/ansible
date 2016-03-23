@@ -1,0 +1,13 @@
+---
+- name: Apt-get update before installing
+  apt: update_cache=yes
+
+- name: Install Essential Packages
+  apt: pkg={{ item }} state=present
+  with_items:
+    - curl
+    - python-pycurl
+    - python-mysqldb
+
+- name: Install Git
+  apt: pkg=git-core state=present
