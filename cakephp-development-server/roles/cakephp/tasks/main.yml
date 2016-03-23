@@ -13,4 +13,4 @@
   copy: src=app_dev_schema.sql dest=/var/www/app.dev/tmp/app_dev_schema.sql
 
 - name: Create app_dev database schema 
-  mysql_db: name=app_dev state=dump target=/var/www/app.dev/tmp/app_dev_schema.sql
+  mysql_db: name=app_dev state=dump target=/var/www/app.dev/tmp/app_dev_schema.sql login_password=root login_user=root
