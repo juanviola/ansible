@@ -17,5 +17,5 @@
 - name: Install phpMyAdmin
   apt: pkg=phpmyadmin state=present
 
-# - name: Set root MySQL password
-#   command: mysqladmin -u root password temppassword
+- name: Set privileges for app_dev
+  mysql_user: name=root password=root priv=app_dev.*:ALL state=present

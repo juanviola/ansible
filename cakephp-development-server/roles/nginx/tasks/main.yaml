@@ -8,6 +8,7 @@
 - name: Configure nginx cakephp-virtualhost file
   template: src=cakephp-virtualhost.j2 dest=/etc/nginx/sites-available/cakephp backup=yes
   tags: nginx
+  notify: restart nginx
 
 - name: Create symbolic link
   file: src=/etc/nginx/sites-available/cakephp dest=/etc/nginx/sites-enabled/cakephp state=link

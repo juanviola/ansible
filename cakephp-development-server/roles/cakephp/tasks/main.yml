@@ -9,8 +9,8 @@
 - name: Copy cakephp app.php configuration
   template: src=app.php dest=/var/www/app.dev/config/app.php
 
-- name: Copy cakephp app.php configuration
-  template: src=app_dev_schema.sql dest=/var/www/app.dev/tmp/app_dev_schema.sql
+- name: Copy mysql schema
+  copy: src=app_dev_schema.sql dest=/var/www/app.dev/tmp/app_dev_schema.sql
 
 - name: Create app_dev database schema 
   mysql_db: name=app_dev state=dump target=/var/www/app.dev/tmp/app_dev_schema.sql
