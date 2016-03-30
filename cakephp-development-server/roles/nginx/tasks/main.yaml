@@ -15,6 +15,16 @@
   tags: nginx
   notify: restart nginx
 
+- name: Configure nginx db-virtualhost file
+  template: src=db.j2 dest=/etc/nginx/sites-available/db backup=yes
+  tags: nginx
+  notify: restart nginx
+
+- name: Create symbolic link
+  file: src=/etc/nginx/sites-available/db dest=/etc/nginx/sites-enabled/db state=link
+  tags: nginx
+  notify: restart nginx
+
 - name: Start the nginx service
   service: name=nginx state=started enabled=yes
   tags: nginx

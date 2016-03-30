@@ -1,19 +1,13 @@
 server {
     listen 80;
-    server_name www.app.dev;
-    rewrite ^(.*) http://app.dev$1 permanent;
-}
-
-server {
-    listen 80;
-    server_name app.dev;
+    server_name db.dev;
 
     # root directive should be global
-    root /var/www/app.dev/webroot;
+    root /var/www/db;
     index index.php;
 
-    access_log /var/log/nginx/app.dev.access.log;
-    error_log /var/log/nginx/app.dev.error.log;
+    access_log /var/log/nginx/db.dev.access.log;
+    error_log /var/log/nginx/db.dev.error.log;
 
     location / {
         try_files $uri \$uri /index.php?$args;
