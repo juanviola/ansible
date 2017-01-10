@@ -15,8 +15,12 @@
       apt_key: keyserver={{apt_key_server}} id={{apt_key_id}}
 
 
-    - shell: echo "Ubuntu 14.04"
-      when: ansible_os_family == "Ubuntu" and ansible_lsb.major_release = "14.04"
+    - shell: echo {{ansible_lsb.major_release}}
 
-    - shell: echo "Ubuntu 16.04"
-      when: ansible_os_family == "Ubuntu" and ansible_lsb.major_release = "16.04"
+    - shell: echo {{ansible_os_family}}
+
+    # - shell: echo "Ubuntu 14.04"
+    #   when: ansible_os_family == "Ubuntu" and ansible_lsb.major_release = "14.04"
+
+    # - shell: echo "Ubuntu 16.04"
+    #   when: ansible_os_family == "Ubuntu" and ansible_lsb.major_release = "16.04"
