@@ -24,7 +24,7 @@
         msg: "{{ansible_os_family}}"
 
     - debug: 
-      msg: "OK"
+        msg: "OK"
       when: 
         - ansible_os_family == "Ubuntu" 
         - ansible_lsb.release == "14.04"
