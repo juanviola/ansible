@@ -16,7 +16,7 @@
 
 
     - shell: echo "Ubuntu 14.04"
-      when: ansible_os_family == "Ubuntu" and ansible_lsb.major_release|int = "14.04"
+      when: ansible_os_family == "Ubuntu" and ansible_lsb.major_release = "14.04"
 
     - shell: echo "Ubuntu 16.04"
-      when: ansible_os_family == "Ubuntu" and ansible_lsb.major_release|int = "16.04"
+      when: ansible_os_family == "Ubuntu" and ansible_lsb.major_release = "16.04"
