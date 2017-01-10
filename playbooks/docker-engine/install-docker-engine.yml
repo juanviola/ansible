@@ -2,7 +2,7 @@
 - hosts: all
   vars:
     apt_key_id: 58118E89F3A912897C070ADBF76221572C52609D
-    apt_key_server: ha.pool.sks-keyservers.net:80
+    apt_key_server: hkp://ha.pool.sks-keyservers.net:80
 
   tasks:
     - name: install required packages
