@@ -1,3 +1,0 @@
----
-#- name: download phpmyadmin
-#  get_url: url=https://files.phpmyadmin.net/phpMyAdmin/4.6.0/phpMyAdmin-4.6.0-english.tar.gz dest=/tmp/phpMyAdmin-4.6.0-english.tar.gz validate_certs=no mode=0440
