@@ -16,10 +16,10 @@
 
 
     - debug: 
-        msg: {{ansible_lsb.major_release}}
+        msg: "{{ansible_lsb.major_release}}"
 
     - debug: 
-        msg: {{ansible_os_family}}
+        msg: "{{ansible_os_family}}"
 
     # - shell: echo "Ubuntu 14.04"
     #   when: ansible_os_family == "Ubuntu" and ansible_lsb.major_release = "14.04"
