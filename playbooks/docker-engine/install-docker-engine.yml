@@ -1,4 +1,16 @@
 ---
 - hosts: all
+  vars:
+    apt_key_id: 58118E89F3A912897C070ADBF76221572C52609D
+    apt_key_server: ha.pool.sks-keyservers.net:80
+
   tasks:
-    - shell: echo "hello world"
+    - name: install required packages
+      apt: name={{ item }} state=installed
+      with_items:
+        - apt-transport-https
+        - ca-certificates
+
+    - name: add apt key from docker
+      apt_key: keyserver={{apt_key_server}} id={{apt_key_id}}
+
