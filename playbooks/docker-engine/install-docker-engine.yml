@@ -14,3 +14,9 @@
     - name: add apt key from docker
       apt_key: keyserver={{apt_key_server}} id={{apt_key_id}}
 
+
+    - shell: echo "Ubuntu 14.04"
+      when: ansible_os_family == "Ubuntu" and ansible_lsb.major_release|int = "14.04"
+
+    - shell: echo "Ubuntu 16.04"
+      when: ansible_os_family == "Ubuntu" and ansible_lsb.major_release|int = "16.04"
