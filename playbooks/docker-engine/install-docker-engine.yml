@@ -3,6 +3,9 @@
   vars:
     apt_key_id: 58118E89F3A912897C070ADBF76221572C52609D
     apt_key_server: hkp://ha.pool.sks-keyservers.net:80
+    proxy_env: 
+      http_proxy: http://172.16.0.89:80
+      https_proxy: http://172.16.0.89:80
 
   tasks:
     - name: install required packages
@@ -14,9 +17,13 @@
     - name: add apt key from docker
       apt_key: keyserver={{apt_key_server}} id={{apt_key_id}}
 
-    - name: add docker repository
+    - name: add docker repository for ubuntu 14.04
       apt_repository: repo="deb https://apt.dockerproject.org/repo ubuntu-trusty main" state=present
       when: ansible_distribution == 'Ubuntu' and ansible_distribution_version == '14.04'
+
+    - name: add docker repository for ubuntu 16.04
+      apt_repository: repo="deb https://apt.dockerproject.org/repo ubuntu-xenial main" state=present
+      when: ansible_distribution == 'Ubuntu' and ansible_distribution_version == '16.04'
 
     - name: update apt 
       apt: update_cache=yes
