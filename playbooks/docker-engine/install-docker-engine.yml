@@ -25,11 +25,8 @@
       apt_repository: repo="deb https://apt.dockerproject.org/repo ubuntu-xenial main" state=present
       when: ansible_distribution == 'Ubuntu' and ansible_distribution_version == '16.04'
 
-    - name: update apt 
-      apt: update_cache=yes
-
     - name: update apt and install docker-engine
-      apt: name=docker-engine state=latest
+      apt: name=docker-engine state=latest update_cache=yes
 
     - debug: 
         msg: "OK"
