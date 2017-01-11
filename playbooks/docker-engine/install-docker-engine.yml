@@ -27,7 +27,7 @@
         msg: "OK"
       when: 
         - ansible_os_family == "Ubuntu" 
-        - ansible_lsb.release|int = 14
+        - ansible_lsb.codename == "trusty"
 
     # - shell: echo "Ubuntu 16.04"
     #   when: ansible_os_family == "Ubuntu" and ansible_lsb.major_release = "16.04"
