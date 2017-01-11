@@ -18,18 +18,9 @@
       apt_repository: repo="deb https://apt.dockerproject.org/repo ubuntu-trusty main" state=present
       when: ansible_distribution == 'Ubuntu' and ansible_distribution_version == '14.04'
 
-    - debug: 
-        msg: "{{ansible_lsb}}"
-
-    - debug: 
-        msg: "{{ansible_lsb.major_release}}"
-
-    - debug: 
-        msg: "{{ansible_os_family}}"
+    - name: update apt and install docker-engine
+      apt: name=docker-engine state=latest update_cache=yes
 
     - debug: 
         msg: "OK"
       when: ansible_distribution == 'Ubuntu' and ansible_distribution_version == '14.04'
-        
-    # - shell: echo "Ubuntu 16.04"
-    #   when: ansible_os_family == "Ubuntu" and ansible_lsb.major_release = "16.04"
